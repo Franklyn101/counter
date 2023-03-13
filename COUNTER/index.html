@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+    <!DOCTYPE html>
+    <html>
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+        content="width=device-width=scale 1.0">
+    
+         <title>counter</title>
+         <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background: hsl(0, 0%, 100%);
+                font-family: sans-serif;
+            }
+            .middle {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                flex-wrap: wrap;
+            }
+            span {
+                font-size: 77px;
+                color: green;
+                font-weight: bold;
+            }
+            .middle h1 {
+                font-size: 70px;
+                color: rgb(10, 10, 39);
+            }
+            .button {
+                display: flex;
+                margin-top: 20px;
+                gap: 20px;
+                flex-wrap: wrap;
+               
+            }
+            .button .bt1 {
+                padding: 6px 20px 6px 20px;
+                border: 2px solid black;
+                border-radius: 6px;
+                background: transparent;
+                cursor: pointer;
+                letter-spacing: 3px;
+            }
+            .button .bt2 {
+                padding: 6px 15px 6px 15px;
+                border: 2px solid black;
+                border-radius: 6px;
+                background: transparent;
+                cursor: pointer;
+                letter-spacing: 3px;
+            }
+            .button .bt3 {
+                padding: 6px 20px 6px 20px;
+                border: 2px solid blue;
+                border-radius: 6px;
+                background: transparent;
+                cursor: pointer;
+                letter-spacing: 3px;
+            }
+         </style>
+        </head>
+        <body>
+            <div class="middle">
+                <h1>Counter</h1>
+                <span id="value">0</span>
+                <div class="button">
+                    <button onclick="minus()"  class="bt1">DECREASE</button>
+                    <button onclick="reset()"  class="bt2">RESET</button>
+                    <button onclick="add()" class="bt3">INCREASE</button>
+                </div>
+            </div>
+            <script>
+                let count = 0;
+                const value = document.getElementById("value")
+                const button = document.querySelectorAll("button")
+                button.forEach(buttons=>{
+                    buttons.addEventListener('click',()=>{
+                    if (count < 0) {
+                        value.style.color = "red"
+                    } else {
+                        value.style.color = "green"
+                    }
+                    if (count == 0) {
+                        value.style.color = "blue"
+                    }
+                })
+                })
+                function add(){
+                    count++
+                    value.textContent = count
+                }
+                function minus(){
+                    count--
+                    value.textContent = count
+                }
+                function reset(){
+                    count = 0
+                    value.textContent = count
+                }
+            </script>
+
+        </body>
+    </html>
